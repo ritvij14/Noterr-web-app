@@ -1,0 +1,36 @@
+body {
+    background-color: #071a52;
+    font-family: 'Righteous';
+    font-size: 20px;
+    overflow-x: hidden;
+}
+
+/*for navbar*/
+.navbar-logo {
+    color: #a7ff83;
+}
+
+.nav-title {
+    padding-left: 10px;
+    display: inline;
+}
+
+.fa-home {
+    color: #a7ff83;
+    padding-right: 10px;
+}
+
+.navbar {
+    background-color: #17b978;
+}
+
+.navbar .navbar-nav .nav-item>a {
+    color: #a7ff83 !important;
+}
+
+.navbar-nav>.active>a {
+    color: #a7ff83;
+    background-color: #086972;
+}
+
+/*for the note making area*/
