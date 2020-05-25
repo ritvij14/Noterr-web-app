@@ -16,8 +16,8 @@
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
     </script>
@@ -39,17 +39,48 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item active" id="home-button">
                         <a class="nav-link" href="#"><i class="fas fa-home"></i>Home</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="about-us-button">
                         <a class="nav-link" href="#">About Us</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!--Collapsible Typing area-->
-    <!--Display of note cards-->
+
+    <!--Noting area-->
+    <div class="container-fluid text-center note-box">
+        <div class="card col-12 col-lg-8 note-input" style="justify-content: center;">
+            <input type="text" id="note-title" name="title" class="form-control" placeholder="Title">
+            <input type="text" id="note-content" name="content" class="form-control" placeholder="Enter your notes...">
+        </div>
+    </div>
+
+    <!--Add note button-->
+    <div class="container-fluid text-center add-new-note">
+        <button class="add-note-button" id="add-note-button">+</button>
+    </div>
+
+    <!--Adding notes-->
+    <div class="container-fluid notes-list">
+        <ul class="row" id="saved-notes">
+            <li class="col-md-4 col-lg-4 col-xl-4 note">
+                <div class="card container-fluid" style="justify-content: center;" id="note-card">
+                    <h2>noterr.io usage</h2>
+                    <p>Type out your note in the above text area and click on "+" button to save.</p>
+                    <div class="dropdown ml-auto" id="dropdown-button">
+                        <button class="dropBtn">&equiv;</button>
+                        <div class="dropdown-options" id="dropdown-options">
+                            <a href="#">Edit</a>
+                            <a href="#">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
 </body>
+<script src="app.js"></script>
 </html>

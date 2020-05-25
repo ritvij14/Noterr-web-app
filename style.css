@@ -20,17 +20,152 @@ body {
     padding-right: 10px;
 }
 
+.fa-pencil-alt {
+    font-size: 25px;
+    margin-bottom: 0.75rem;
+}
+
 .navbar {
     background-color: #17b978;
+    position: relative;
 }
 
 .navbar .navbar-nav .nav-item>a {
     color: #a7ff83 !important;
 }
 
-.navbar-nav>.active>a {
+.navbar-nav>.active {
     color: #a7ff83;
     background-color: #086972;
 }
 
-/*for the note making area*/
+/*for note writing box*/
+.note-input {
+    margin-top: 3%;
+    background-color: #00279C;
+    margin-left: 17%;
+    padding: 1%;
+    border-radius: 25px;
+}
+
+#note-title, #note-content {
+    border-radius: 25px;
+    color: black;
+    font-family: 'Comic Neue', cursive;
+}
+
+#note-title {
+    font-size: 18px;
+}
+
+#note-content {
+    font-size: 15px;
+    margin-top: 1%;
+}
+
+/*add new note button*/
+.add-note-button {
+    margin-top: 3%;
+    padding-right: 1.5%;
+    padding-left: 1.5%;
+    border-radius: 50%;
+    background-color: yellow;
+    border-color: yellow;
+    font-size: 35px;
+    box-shadow: rgba(0, 0, 0, 0.8);
+    outline: none;
+}
+
+.add-note-button:focus {
+    outline: none;
+}
+
+/*note cards*/
+.notes-list {
+    flex-wrap: wrap;
+    padding-top: 2%;
+    padding-right: 3.5%;
+}
+
+#note-card {
+    margin-top: 2%;
+    background-color: #17b978;
+    font-family: 'Comic Neue', cursive;
+    box-shadow: rgba(0, 0, 0, 0.8);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropBtn {
+    background-color: #17b978;
+    color: white;
+    padding: 7px;
+    border: none;
+}
+
+.dropdown-options {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-options a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-options a:hover {
+    background-color: #086972;
+    color: white;
+}
+
+.dropdown:hover .dropBtn {
+    background-color: #086972;
+}
+
+.dropdown:active .dropdown-options {
+    display: block;
+}
+
+/*Media queries*/
+@media only screen and (max-width: 600px) {
+
+    .note-input {
+        margin-top: 3%;
+        background-color: #00279C;
+        margin-left: 0%;
+        margin-top: 10%;
+        padding: 3%;
+    }
+
+    #note-content {
+        margin-top: 3%;
+    }
+
+    .add-note-button {
+        margin-top: 8%;
+        padding-right: 5.5%;
+        padding-left: 5.5%;
+        border-radius: 50%;
+        background-color: yellow;
+        border-color: yellow;
+        font-size: 35px;
+        box-shadow: rgba(0, 0, 0, 0.8);
+        outline: none;
+    }
+
+    ul {
+        margin-top: 10%;
+        padding-right: 10%;
+    }
+
+    ul > li {
+        margin-top: 5%;
+    }
+}
