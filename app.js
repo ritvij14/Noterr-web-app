@@ -83,8 +83,8 @@ addNoteButton.addEventListener('click', () => {
 
         //event listener for delete button
         deleteBtn.addEventListener('click', () => {
-            alert("Are you sure you wanna delete this note?");
-            savedNotesList.removeChild(notesLi);
+            if(confirm("Are you sure you wanna delete this note?"))
+                savedNotesList.removeChild(notesLi);
         })
 
     //event listener for edit button
