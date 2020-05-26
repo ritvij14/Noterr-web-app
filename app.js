@@ -4,6 +4,8 @@ var addNoteButton = document.getElementById("add-note-button");
 var savedNotesList = document.getElementById("saved-notes");
 var deleteButton = document.getElementsByClassName("delete-btn");
 var editButton = document.getElementsByClassName("edit-btn");
+var editStatus = false;
+var noteNumber = 0;
 
 //for home button in nav bar
 homeButton.addEventListener('click', () => {
@@ -32,65 +34,68 @@ addNoteButton.addEventListener('click', () => {
     //take note typed by user
     var newNoteTitle = document.getElementById('note-title').value;
     var newNoteContent = document.getElementById('note-content').value;
-    console.log(newNoteContent);
-    var title = document.createElement('h2');
-    var noteContent = document.createElement('p');
-    title.appendChild(document.createTextNode(newNoteTitle))
-    noteContent.appendChild(document.createTextNode(newNoteContent));
+    if (newNoteTitle === "" || newNoteContent === "null") {
+        alert("Please fill all entries");
+    }
+    else {
+        console.log(newNoteContent);
+        var title = document.createElement('h2');
+        var noteContent = document.createElement('p');
+        title.appendChild(document.createTextNode(newNoteTitle))
+        noteContent.appendChild(document.createTextNode(newNoteContent));
 
-    //create edit and delete buttons
-    var buttons = document.createElement('div');
-    var editBtn = document.createElement('a');
-    var edit = document.createElement('i');
-    var deleteBtn = document.createElement('a');
-    var del = document.createElement('i');
-    edit.className = 'far fa-edit';
-    del.className = 'far fa-trash-alt';
-    editBtn.className = 'edit-btn';
-    editBtn.href = '#';
-    deleteBtn.className = 'delete-btn';
-    deleteBtn.href = '#';
-    editBtn.appendChild(edit);
-    deleteBtn.appendChild(del);
-    buttons.className = 'ml-auto';
-    buttons.appendChild(editBtn);
-    buttons.appendChild(deleteBtn);
+        //create edit and delete buttons
+        var buttons = document.createElement('div');
+        var editBtn = document.createElement('a');
+        var edit = document.createElement('i');
+        var deleteBtn = document.createElement('a');
+        var del = document.createElement('i');
+        edit.className = 'far fa-edit';
+        del.className = 'far fa-trash-alt';
+        editBtn.className = 'edit-btn';
+        editBtn.href = '#';
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.href = '#';
+        editBtn.appendChild(edit);
+        deleteBtn.appendChild(del);
+        buttons.className = 'ml-auto';
+        buttons.appendChild(editBtn);
+        buttons.appendChild(deleteBtn);
 
-    //create card
-    var card = document.createElement('div');
-    card.className = 'card container-fluid';
-    card.style = 'justify-content: center;';
-    card.id = 'note-card';
-    card.appendChild(title);
-    card.appendChild(noteContent);
-    card.appendChild(buttons);
-    //console.log(card);
+        //create card
+        var card = document.createElement('div');
+        card.className = 'card container-fluid';
+        card.style = 'justify-content: center;';
+        card.id = 'note-card';
+        card.appendChild(title);
+        card.appendChild(noteContent);
+        card.appendChild(buttons);
+        //console.log(card);
 
-    //create list item
-    var notesLi = document.createElement('li');
-    notesLi.className = 'col-xl-4 note';
-    notesLi.appendChild(card);
-    console.log(notesLi);
+        //create list item
+        var notesLi = document.createElement('li');
+        notesLi.className = 'col-xl-4 note';
+        notesLi.appendChild(card);
+        console.log(notesLi);
 
-    //save note
-    savedNotesList.appendChild(notesLi);
+        //save note
+        savedNotesList.appendChild(notesLi);
 
-    //event listener for delete button
-    deleteBtn.addEventListener('click', () => {
-        alert("Are you sure you wanna delete this note?");
-        savedNotesList.removeChild(notesLi);
-    })
+        //event listener for delete button
+        deleteBtn.addEventListener('click', () => {
+            alert("Are you sure you wanna delete this note?");
+            savedNotesList.removeChild(notesLi);
+        })
 
     //event listener for edit button
+        editBtn.addEventListener('click', () => {
+            document.getElementById('note-title').value = newNoteTitle;
+            document.getElementById('note-content').value = newNoteContent;
+            savedNotesList.removeChild(notesLi);
+        })
 
-    //clear the input areas once note is added
-    document.getElementById('note-title').value = "";
-    document.getElementById('note-content').value = "";
+        //clear the input areas once note is added
+        document.getElementById('note-title').value = "";
+        document.getElementById('note-content').value = "";
+    }
 })
-
-//for delete button
-for (var i = 0 ; i < deleteButton.length ; i++) {
-    deleteButton[i].addEventListener('click', () => {
-        alert("Are you sure you wanna delete this note?");
-    })
-}
