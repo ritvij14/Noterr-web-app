@@ -2,8 +2,8 @@ var homeButton = document.getElementById("home-button");
 var aboutUsButton = document.getElementById("about-us-button");
 var addNoteButton = document.getElementById("add-note-button");
 var savedNotesList = document.getElementById("saved-notes");
-var dropdownButton = document.getElementsByClassName("dropdown");
-var dropdownOptions = document.getElementsByClassName("dropdown-options");
+var deleteButton = document.getElementsByClassName("delete-btn");
+var editButton = document.getElementsByClassName("edit-btn");
 
 //for home button in nav bar
 homeButton.addEventListener('click', () => {
@@ -30,13 +30,31 @@ addNoteButton.addEventListener('click', () => {
     //console.log("Creating new note");
 
     //take note typed by user
-    var newNoteTitle = document.getElementById('note-title').value
+    var newNoteTitle = document.getElementById('note-title').value;
     var newNoteContent = document.getElementById('note-content').value;
     console.log(newNoteContent);
     var title = document.createElement('h2');
     var noteContent = document.createElement('p');
     title.appendChild(document.createTextNode(newNoteTitle))
     noteContent.appendChild(document.createTextNode(newNoteContent));
+
+    //create edit and delete buttons
+    var buttons = document.createElement('div');
+    var editBtn = document.createElement('a');
+    var edit = document.createElement('i');
+    var deleteBtn = document.createElement('a');
+    var del = document.createElement('i');
+    edit.className = 'far fa-edit';
+    del.className = 'far fa-trash-alt';
+    editBtn.className = 'edit-btn';
+    editBtn.href = '#';
+    deleteBtn.className = 'delete-btn';
+    deleteBtn.href = '#';
+    editBtn.appendChild(edit);
+    deleteBtn.appendChild(del);
+    buttons.className = 'ml-auto';
+    buttons.appendChild(editBtn);
+    buttons.appendChild(deleteBtn);
 
     //create card
     var card = document.createElement('div');
@@ -45,33 +63,34 @@ addNoteButton.addEventListener('click', () => {
     card.id = 'note-card';
     card.appendChild(title);
     card.appendChild(noteContent);
+    card.appendChild(buttons);
     //console.log(card);
-
-    //create drop down button
-    var editBtn = document.createElement('a');
-    var deleteBtn = document.createElement('a');
-    editBtn.href = "#";
-    deleteBtn.href = "#";
-    var dropOptions = document.createElement('div');
-    dropOptions.className = 'dropdown-options';
-    dropOptions.appendChild(editBtn);
-    dropOptions.appendChild(deleteBtn);
-    var dropBtn = document.createElement('button');
-    dropBtn.appendChild(document.createTextNode('&equiv;'));
-    dropBtn.appendChild(dropOptions);
-    var dropdown = document.createElement('div');
-    dropdown.className = "dropdown ml-auto";
-    dropdown.appendChild(dropBtn);
 
     //create list item
     var notesLi = document.createElement('li');
     notesLi.className = 'col-xl-4 note';
     notesLi.appendChild(card);
-    notesLi.appendChild(dropdown);
     console.log(notesLi);
 
     //save note
     savedNotesList.appendChild(notesLi);
+
+    //event listener for delete button
+    deleteBtn.addEventListener('click', () => {
+        alert("Are you sure you wanna delete this note?");
+        savedNotesList.removeChild(notesLi);
+    })
+
+    //event listener for edit button
+
+    //clear the input areas once note is added
+    document.getElementById('note-title').value = "";
+    document.getElementById('note-content').value = "";
 })
 
-//for dropdown button of each card
+//for delete button
+for (var i = 0 ; i < deleteButton.length ; i++) {
+    deleteButton[i].addEventListener('click', () => {
+        alert("Are you sure you wanna delete this note?");
+    })
+}

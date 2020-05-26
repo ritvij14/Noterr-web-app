@@ -94,43 +94,14 @@ body {
     box-shadow: rgba(0, 0, 0, 0.8);
 }
 
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropBtn {
-    background-color: #17b978;
+.fa-edit,
+.fa-trash-alt {
     color: white;
-    padding: 7px;
-    border: none;
+    font-size: 24px;
 }
 
-.dropdown-options {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    z-index: 1;
-}
-
-.dropdown-options a {
-    color: black;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-options a:hover {
-    background-color: #086972;
-    color: white;
-}
-
-.dropdown:hover .dropBtn {
-    background-color: #086972;
-}
-
-.dropdown:active .dropdown-options {
-    display: block;
+.fa-trash-alt {
+    margin-left: 5px;
 }
 
 /*Media queries*/
